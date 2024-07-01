@@ -1,30 +1,35 @@
-import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CountryPageComponent } from './pages/country-page/country-page.component';
+import { Routes, RouterModule } from '@angular/router';
+
 import { ByCapitalPageComponent } from './pages/by-capital-page/by-capital-page.component';
 import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.component';
 import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
-
-
+import { CountryPageComponent } from './pages/country-page/country-page.component';
 
 const routes: Routes = [
   {
-     path: 'by-capital',
-     component:ByCapitalPageComponent,
+    path: 'by-capital',
+    component: ByCapitalPageComponent,
   },
   {
     path: 'by-country',
-    component:ByCountryPageComponent,
+    component: ByCountryPageComponent,
   },
   {
     path: 'by-region',
-    component:ByRegionPageComponent,
-   },
-   {
+    component: ByRegionPageComponent,
+  },
+  {
     path: 'by/:id',
-    component:CountryPageComponent,
-   },
+    component: CountryPageComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'by-capital'
+  }
+
 ]
+
 
 @NgModule({
   imports: [
@@ -33,6 +38,5 @@ const routes: Routes = [
   exports: [
     RouterModule
   ],
-
 })
 export class CountriesRoutingModule { }
